@@ -1,7 +1,7 @@
 import Logger from './env.logger';
 import * as path from 'path';
 import * as os from 'os';
-import PluginIPCService from 'chipmunk.plugin.ipc';
+import PluginIPCService, { ServiceState } from 'chipmunk.plugin.ipc';
 import { IPCMessages } from 'chipmunk.plugin.ipc';
 import * as pty from 'node-pty';
 
@@ -132,4 +132,10 @@ class Plugin {
 
 }
 
+// Create plugin
 const app: Plugin = new Plugin();
+
+// Notify core about plugin
+ServiceState.accept().catch((err: Error) => {
+    console.log(`Fail to notify core about plugin due error: ${err.message}`);
+});
