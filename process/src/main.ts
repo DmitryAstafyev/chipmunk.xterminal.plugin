@@ -1,5 +1,4 @@
 import Logger from './env.logger';
-import * as path from 'path';
 import * as os from 'os';
 import PluginIPCService, { ServiceState } from 'chipmunk.plugin.ipc';
 import { IPCMessages } from 'chipmunk.plugin.ipc';
